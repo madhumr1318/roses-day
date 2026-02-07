@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Rose Day 🌹 Darling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Floating Roses -->
+<div class="rose-container">
+    <span class="rose">🌹</span>
+    <span class="rose">🌹</span>
+    <span class="rose">🌹</span>
+    <span class="rose">🌹</span>
+    <span class="rose">🌹</span>
+    <span class="rose">🌹</span>
+    <span class="rose">🌹</span>
+</div>
+
+<!-- Floating Hearts -->
+<div class="heart-container">
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+    <span class="heart">❤️</span>
+</div>
+
+<div class="container">
+    <h1>🌹 Happy Rose Day 🌹</h1>
+
+    <h2 class="for-name">For Pichi ❤️</h2>
+
+    <p class="subtitle">
+        A rose for you, to tell you how special you are 💖
+    </p>
+
+    <div class="roses">
+        <div class="card red">
+            <h2>Red Rose</h2>
+            <p>Love & Romance</p>
+        </div>
+        <div class="card pink">
+            <h2>Pink Rose</h2>
+            <p>Admiration & Care</p>
+        </div>
+        <div class="card yellow">
+            <h2>Yellow Rose</h2>
+            <p>Friendship & Happiness</p>
+        </div>
+    </div>
+    <div class="valentine-box">
+    <h2>💌 Will you be my Valentine?</h2>
+
+    <div class="valentine-buttons">
+        <button class="yes-btn" onclick="sayYes()">Yes ❤️</button>
+        <button class="no-btn" onclick="sayNo()">No 😜</button>
+    </div>
+
+    <p id="valentine-message"></p>
+</div>
+
+
+    <button onclick="showMessage()">Send a Rose 🌹</button>
+    <p id="message"></p>
+
+    <!-- Music Button -->
+    <button class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+</div>
+
+<!-- Background Music -->
+<audio id="bg-music" loop>
+    <source src="mysong.mp3" type="audio/mpeg">
+</audio>
+
+<!-- JS AT BOTTOM -->
+<script>
+function showMessage() {
+    document.getElementById("message").innerText =
+        "This rose is just for you, Pichi 💖 Happy Rose Day!";
+}
+
+function toggleMusic() {
+    const music = document.getElementById("bg-music");
+    const btn = document.querySelector(".music-btn");
+
+    if (music.paused) {
+        music.play()
+            .then(() => btn.innerText = "⏸ Pause Music")
+            .catch(() => alert("Please click again to play music"));
+    } else {
+        music.pause();
+        btn.innerText = "🎵 Play Music";
+    }
+}
+</script>
+<script>
+function showMessage() {
+    document.getElementById("message").innerText =
+        "This rose is just for you, Pichi 💖 Happy Rose Day!";
+}
+
+function toggleMusic() {
+    const music = document.getElementById("bg-music");
+    const btn = document.querySelector(".music-btn");
+
+    if (music.paused) {
+        music.play()
+            .then(() => btn.innerText = "⏸ Pause Music")
+            .catch(() => alert("Please click again to play music"));
+    } else {
+        music.pause();
+        btn.innerText = "🎵 Play Music";
+    }
+}
+
+/* 👇 ADD THIS PART BELOW */
+let noCount = 0;
+
+function sayNo() {
+    const reasons = [
+        "Are you sure? 🥺",
+        "Think again… I brought roses 🌹",
+        "But we look perfect together 💕",
+        "Don’t break my heart 💔",
+        "Okay okay… you MUST say Yes now 😆"
+    ];
+
+    document.getElementById("valentine-message").innerText =
+        reasons[noCount % reasons.length];
+
+    noCount++;
+}
+
+function sayYes() {
+    document.getElementById("valentine-message").innerText =
+        "YAYYY 💖💖💖 I knew it! Happy Valentine’s Day, Pichi 😘🌹";
+}
+</script>
+
+
+</body>
+</html>
